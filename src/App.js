@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   display: flex;
+  justify-content: space-between;
 `
 
 export default class App extends React.Component {
@@ -28,7 +29,10 @@ export default class App extends React.Component {
       nome: 'Produto 3',
       preco: 'R$100',
     }],
-    produtosCarrinho: [],
+    produtosCarrinho: [{
+      nomeCarrinho: '',
+      precoCarrinho: 0,
+    }],
     valorMinimo: '',
     valorMaximo: '',
     buscarNome: '',
@@ -50,25 +54,25 @@ export default class App extends React.Component {
     this.setState({ ordem: event.target.value })
   }
 
+  //Funções
   adicionarCarrinho = (id) => {
-    const produtos = this.state.produtos.filter((item) => {
+    const filtrado = this.state.produtos.filter((item) => {
       if (item.id === id) {
         return true
       }
     })
 
-    const listaProdutos = [...this.state.produtosCarrinho, produtos]
+    const listaProdutos = [filtrado, ...this.state.produtosCarrinho]
+    console.log(filtrado)
 
-    this.setState({produtosCarrinho: listaProdutos})
+
+    this.setState({ produtosCarrinho: listaProdutos })
+    console.log(this.state.produtosCarrinho)
   }
 
   removerProduto = () => {
-
   }
 
-  areaProdutos = () => {
-
-  }
   render() {
     const valorTotal = 0
     const listaProdutos = this.state.produtos.map((item) => {
@@ -95,8 +99,8 @@ export default class App extends React.Component {
           {listaProdutos}
         </div>
         <Carrinho
-          nomeProduto={this.state.nome}
-          precoProduto={this.state.preco}
+          nomeProduto={this.state.nomeCarrinho}
+          precoProduto={this.state.precoCarrinho}
           onClickRemoverProduto={this.removerProduto}
           valorTotalCompras={valorTotal}
         />
