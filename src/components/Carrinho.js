@@ -16,10 +16,10 @@ export class Carrinho extends React.Component {
                 <p> {this.props.nomeProduto} </p>
                 <p> {this.props.precoProduto} </p>
                 <p> {this.props.quantidadeProduto} </p>
-                <BotaoRemover onClick={() => this.props.onClickRemoverProduto(produtos.id)}>
+                <BotaoRemover onClick={() => this.props.onClickRemoverProduto(this.props.produtos.id)}>
                     Remover
                 </BotaoRemover>
-                <p> Valor total: R$ {this.props.valorTotalCompras()}</p>
+                <p> Valor total: R$ {this.props.valorTotalCompras}</p>
             </CarrinhoContainer>
         )
     }
