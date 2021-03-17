@@ -58,13 +58,13 @@ export default class App extends React.Component {
             linkImagem={'https://picsum.photos/200/150?n=1'}
             nomeProduto={'Produto 1'}
             precoProduto={'R$200'}
-            adicionarCarrinho={() => this.adiconarCarrinho(this.state.id)}
+            adicionarCarrinho={() => this.adicionarCarrinho(this.state.id)}
           />
           <Produto
             linkImagem={'https://picsum.photos/200/150?n=2'}
             nomeProduto={'Produto 2'}
             precoProduto={'R$100'}
-            adicionarCarrinho={() => this.adiconarCarrinho(this.state.id)}
+            adicionarCarrinho={() => this.adicionarCarrinho(this.state.id)}
           />
         </div>
         <Carrinho 
