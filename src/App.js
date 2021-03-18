@@ -45,16 +45,16 @@ export default class App extends React.Component {
 
 
   // tratamento dos inputs
-  valorMinimo = (event) => {
+  onChangeValorMinimo = (event) => {
     this.setState({ valorMinimo: event.target.value })
   }
-  valorMaximo = (event) => {
+  onChangeValorMaximo = (event) => {
     this.setState({ valorMaximo: event.target.value })
   }
-  buscarNome = (event) => {
+  onChangeBuscarNome = (event) => {
     this.setState({ buscarNome: event.target.value })
   }
-  ordem = (event) => {
+  onChageOrdem = (event) => {
     this.setState({ ordem: event.target.value })
   }
 
@@ -90,8 +90,8 @@ export default class App extends React.Component {
 
     //Verificando se tem mais de um item no carrinho
     for (let i = 0; i < novaLista.length; i++) {
-      if(i === indexProduto){
-        if(novaLista[i].quantidade > 1){
+      if (i === indexProduto) {
+        if (novaLista[i].quantidade > 1) {
           novaLista[i].quantidade -= 1
         } else {
           novaLista.splice(indexProduto, 1)
@@ -100,7 +100,7 @@ export default class App extends React.Component {
     }
 
     this.setState({ produtosCarrinho: novaLista })
-    
+
   }
 
   render() {
@@ -129,10 +129,13 @@ export default class App extends React.Component {
     return (
       <Container>
         <Filtro
-          onChangeValorMinimo={this.valorMinimo}
-          onChangeValorMaximo={this.valorMaximo}
+          valorMinimo={this.state.valorMinimo}
+          valorMaximo={this.state.valorMaximo}
+          buscarNome={this.state.buscarNome}
+          onChangeValorMinimo={this.onChangeValorMinimo}
+          onChangeValorMaximo={this.onChangeValorMaximo}
           onChangeBuscaNome={this.buscarNome}
-          onChangeOrdenacao={this.ordem}
+          onChagenOrdem={this.ordem}
         />
         <div>
           {listaProdutos}
