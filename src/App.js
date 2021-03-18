@@ -114,12 +114,10 @@ export default class App extends React.Component {
     })
 
     const listaFiltrada = this.state.produtos.filter((item) => {
-      if ((item.preco > this.state.valorMinimo && 
-        item.preco < this.state.valorMaximo && 
-        item.nome.includes(this.state.buscarNome)) || 
-        this.state.valorMinimo === '' || 
-        this.state.valorMaximo === '' ||
-        this.state.buscarNome === '') {
+      if (((item.preco > this.state.valorMinimo || this.state.valorMinimo === '' ) && 
+        (item.preco < this.state.valorMaximo || this.state.valorMaximo === '') && 
+        (item.nome.includes(this.state.buscarNome) || this.state.buscarNome === ''))) 
+      {
         return true
       } else {
         return false
