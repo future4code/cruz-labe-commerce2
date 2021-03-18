@@ -149,8 +149,8 @@ export default class App extends React.Component {
           buscarNome={this.state.buscarNome}
           onChangeValorMinimo={this.onChangeValorMinimo}
           onChangeValorMaximo={this.onChangeValorMaximo}
-          onChangeBuscaNome={this.buscarNome}
-          onChagenOrdem={this.ordem}
+          onChangeBuscaNome={this.onChangeBuscarNome}
+          onChagenOrdem={this.onChangeOrdem}
         />
         <div>
           {listaProdutos}
