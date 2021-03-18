@@ -7,6 +7,7 @@ import styled from 'styled-components'
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  
 `
 
 export default class App extends React.Component {
@@ -30,8 +31,11 @@ export default class App extends React.Component {
       preco: 'R$100',
     }],
     produtosCarrinho: [{
-      nomeCarrinho: '',
-      precoCarrinho: 0,
+      id: 1,
+      imagem: 'https://picsum.photos/200/150?n=1',
+      nome: 'Produto 1',
+      preco: 200,
+      quantidade: 1
     }],
     valorMinimo: '',
     valorMaximo: '',
@@ -56,25 +60,41 @@ export default class App extends React.Component {
 
   //Funções
   adicionarCarrinho = (id) => {
-    const filtrado = this.state.produtos.filter((item) => {
-      if (item.id === id) {
-        return true
+    const novoProdutosCarrinho = [...this.state.produtosCarrinho]
+    let i
+    for (i = 0; i < novoProdutosCarrinho.length; i++) {
+      if (novoProdutosCarrinho[i].id === id) {
+        novoProdutosCarrinho[i].quantidade += 1
+        break
       }
+    }
+    if (i === novoProdutosCarrinho.length) {
+      const filtrado = this.state.produtos.filter((item) => {
+        if (item.id === id) return true
+      })
+      filtrado[0].quantidade = 1
+      novoProdutosCarrinho.push(filtrado[0])
+    }
+    this.setState({
+      produtosCarrinho: novoProdutosCarrinho
     })
-
-    const listaProdutos = [filtrado, ...this.state.produtosCarrinho]
-    console.log(filtrado)
-
-
-    this.setState({ produtosCarrinho: listaProdutos })
-    console.log(this.state.produtosCarrinho)
   }
+
 
   removerProduto = () => {
   }
 
   render() {
-    const valorTotal = 0
+    let valorTotal = 0
+    const listaCarrinho = this.state.produtosCarrinho.map((item) => {
+      valorTotal += item.preco * item.quantidade
+      return <Carrinho
+        nomeProduto={item.nome}
+        precoProduto={item.preco}
+        quantidadeProduto={item.quantidade}
+        onClickRemoverProduto={this.removerProduto}
+      />
+    })
     const listaProdutos = this.state.produtos.map((item) => {
       return (
         <Produto
@@ -98,12 +118,11 @@ export default class App extends React.Component {
         <div>
           {listaProdutos}
         </div>
-        <Carrinho
-          nomeProduto={this.state.nomeCarrinho}
-          precoProduto={this.state.precoCarrinho}
-          onClickRemoverProduto={this.removerProduto}
-          valorTotalCompras={valorTotal}
-        />
+        <div>
+          <h3>Lista de compras</h3>
+          {listaCarrinho}
+          <h5>Valor total: R${valorTotal}</h5>
+        </div>
       </Container>
     );
   }
