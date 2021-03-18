@@ -23,14 +23,15 @@ const Componente = styled.div`
         width: 99%;
     }
 `
+export default class Filtro extends React.Component {
 
-export default class Filtro extends React.Component{
-    render(){
+
+    render() {
         return <Componente>
             <h3>Filtros</h3>
             <input type="number" placeholder="Valor mínimo" onChange={this.props.onChangeValorMinimo} />
             <input type="number" placeholder="Valor máximo" onChange={this.props.onChangeValorMaximo} />
-            <input placeholder="Nome do produto"onChange={this.props.onChangeBuscaNome}/>
+            <input placeholder="Nome do produto" onChange={this.props.onChangeBuscaNome} />
             <select defaultValue="decrescente" onChange={this.props.onChangeOrdenacao}>
                 <option value="crescente">Crescente</option>
                 <option value="decrescente">Decrescente</option>
