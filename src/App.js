@@ -16,19 +16,19 @@ export default class App extends React.Component {
       id: 1,
       imagem: 'https://picsum.photos/200/150?n=1',
       nome: 'Produto 1',
-      preco: 200,
+      preco: 50,
     },
     {
       id: 2,
       imagem: 'https://picsum.photos/200/150?n=2',
       nome: 'Produto 2',
-      preco: 50,
+      preco: 100,
     },
     {
       id: 3,
       imagem: 'https://picsum.photos/200/150?n=3',
       nome: 'Produto 3',
-      preco: 100,
+      preco: 200,
     }],
     produtosCarrinho: [{
       id: 0,
@@ -54,7 +54,8 @@ export default class App extends React.Component {
   onChangeBuscarNome = (event) => {
     this.setState({ buscarNome: event.target.value })
   }
-  onChageOrdem = (event) => {
+
+  onChangeOrdem = (event) => {
     this.setState({ ordem: event.target.value })
   }
 
@@ -79,8 +80,6 @@ export default class App extends React.Component {
       produtosCarrinho: novoProdutosCarrinho
     })
   }
-
-
   removerProduto = (id) => {
     //Copiando objeto e buscando pelo index do item a ser excluido
     const novaLista = [...this.state.produtosCarrinho]
@@ -105,6 +104,7 @@ export default class App extends React.Component {
 
   render() {
     let valorTotal = 0
+
     const listaCarrinho = this.state.produtosCarrinho.map((item) => {
       valorTotal += item.preco * item.quantidade
       return <Carrinho
@@ -114,15 +114,30 @@ export default class App extends React.Component {
         onClickRemoverProduto={() => this.removerProduto(item.id)}
       />
     })
-    const listaProdutos = this.state.produtos.map((item) => {
-      return (
-        <Produto
-          key={item.id}
-          linkImagem={item.imagem}
-          nomeProduto={item.nome}
-          precoProduto={item.preco}
-          adicionarCarrinho={() => this.adicionarCarrinho(item.id)}
-        />
+
+    const listaFiltrada = this.state.produtos.filter((item) => {
+      if (((item.preco > this.state.valorMinimo || this.state.valorMinimo === '' ) && 
+        (item.preco < this.state.valorMaximo || this.state.valorMaximo === '') && 
+        (item.nome.includes(this.state.buscarNome) || this.state.buscarNome === ''))) 
+      {
+        return true
+      } else {
+        return false
+      }
+    })
+
+    if(this.state.ordem === 'decrescente'){
+      listaFiltrada.reverse()
+    }
+
+    const listaProdutos = listaFiltrada.map((item) => {
+
+      return (<Produto
+        key={item.id}
+        linkImagem={item.imagem}
+        nomeProduto={item.nome}
+        precoProduto={item.preco}
+        adicionarCarrinho={() => this.adicionarCarrinho(item.id)} />
       )
     })
 
@@ -145,7 +160,7 @@ export default class App extends React.Component {
           {listaCarrinho}
           <h5>Valor total: R${valorTotal}</h5>
         </div>
-      </Container>
+      </Container >
     );
   }
 
