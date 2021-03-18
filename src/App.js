@@ -135,7 +135,7 @@ export default class App extends React.Component {
           onChangeValorMinimo={this.onChangeValorMinimo}
           onChangeValorMaximo={this.onChangeValorMaximo}
           onChangeBuscaNome={this.buscarNome}
-          onChagenOrdem={this.ordem}
+          onChangeOrdem={this.ordem}
         />
         <div>
           {listaProdutos}
