@@ -16,19 +16,19 @@ export default class App extends React.Component {
       id: 1,
       imagem: 'https://picsum.photos/200/150?n=1',
       nome: 'Produto 1',
-      preco: 200,
+      preco: 50,
     },
     {
       id: 2,
       imagem: 'https://picsum.photos/200/150?n=2',
       nome: 'Produto 2',
-      preco: 50,
+      preco: 100,
     },
     {
       id: 3,
       imagem: 'https://picsum.photos/200/150?n=3',
       nome: 'Produto 3',
-      preco: 100,
+      preco: 200,
     }],
     produtosCarrinho: [{
       id: 0,
@@ -103,6 +103,7 @@ export default class App extends React.Component {
 
   render() {
     let valorTotal = 0
+
     const listaCarrinho = this.state.produtosCarrinho.map((item) => {
       valorTotal += item.preco * item.quantidade
       return <Carrinho
@@ -124,7 +125,12 @@ export default class App extends React.Component {
       }
     })
 
+    if(this.state.ordem === 'decrescente'){
+      listaFiltrada.reverse()
+    }
+
     const listaProdutos = listaFiltrada.map((item) => {
+
       return (<Produto
         key={item.id}
         linkImagem={item.imagem}
