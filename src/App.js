@@ -54,6 +54,7 @@ export default class App extends React.Component {
   onChangeBuscarNome = (event) => {
     this.setState({ buscarNome: event.target.value })
   }
+
   onChangeOrdem = (event) => {
     this.setState({ ordem: event.target.value })
   }
@@ -143,13 +144,13 @@ export default class App extends React.Component {
     return (
       <Container>
         <Filtro
-          lista={this.state.produtos}
-          min={this.state.valorMinimo}
-          max={this.state.valorMaximo}
+          valorMinimo={this.state.valorMinimo}
+          valorMaximo={this.state.valorMaximo}
+          buscarNome={this.state.buscarNome}
           onChangeValorMinimo={this.onChangeValorMinimo}
           onChangeValorMaximo={this.onChangeValorMaximo}
-          onChangeBuscaNome={this.onChangeBuscarNome}
-          onChangeOrdenacao={this.onChangeOrdem}
+          onChangeBuscaNome={this.buscarNome}
+          onChagenOrdem={this.ordem}
         />
         <div>
           {listaProdutos}
