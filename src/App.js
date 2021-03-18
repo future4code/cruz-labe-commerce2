@@ -16,26 +16,26 @@ export default class App extends React.Component {
       id: 1,
       imagem: 'https://picsum.photos/200/150?n=1',
       nome: 'Produto 1',
-      preco: 'R$200',
+      preco: 200,
     },
     {
       id: 2,
       imagem: 'https://picsum.photos/200/150?n=2',
       nome: 'Produto 2',
-      preco: 'R$50',
+      preco: 50,
     },
     {
       id: 3,
       imagem: 'https://picsum.photos/200/150?n=3',
       nome: 'Produto 3',
-      preco: 'R$100',
+      preco: 100,
     }],
     produtosCarrinho: [{
-      id: 1,
-      imagem: 'https://picsum.photos/200/150?n=1',
-      nome: 'Produto 1',
-      preco: 200,
-      quantidade: 1
+      id: 0,
+      imagem: '',
+      nome: '',
+      preco: 0,
+      quantidade: 0
     }],
     valorMinimo: '',
     valorMaximo: '',
@@ -81,7 +81,26 @@ export default class App extends React.Component {
   }
 
 
-  removerProduto = () => {
+  removerProduto = (id) => {
+    //Copiando objeto e buscando pelo index do item a ser excluido
+    const novaLista = [...this.state.produtosCarrinho]
+    const indexProduto = novaLista.findIndex((item) => {
+      return item.id === id
+    })
+
+    //Verificando se tem mais de um item no carrinho
+    for (let i = 0; i < novaLista.length; i++) {
+      if(i === indexProduto){
+        if(novaLista[i].quantidade > 1){
+          novaLista[i].quantidade -= 1
+        } else {
+          novaLista.splice(indexProduto, 1)
+        }
+      }
+    }
+
+    this.setState({ produtosCarrinho: novaLista })
+    
   }
 
   render() {
@@ -92,7 +111,7 @@ export default class App extends React.Component {
         nomeProduto={item.nome}
         precoProduto={item.preco}
         quantidadeProduto={item.quantidade}
-        onClickRemoverProduto={this.removerProduto}
+        onClickRemoverProduto={() => this.removerProduto(item.id)}
       />
     })
     const listaProdutos = this.state.produtos.map((item) => {
