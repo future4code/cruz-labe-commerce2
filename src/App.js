@@ -30,19 +30,27 @@ export default class App extends React.Component {
       nome: 'Produto 3',
       preco: 200,
     }],
-    produtosCarrinho: [{
-      id: 0,
-      imagem: '',
-      nome: '',
-      preco: 0,
-      quantidade: 0
-    }],
+    produtosCarrinho: [],
     valorMinimo: '',
     valorMaximo: '',
     buscarNome: '',
-    ordem: ''
+    ordem: 'crescente'
   }
 
+  componentDidMount(){
+    const carrinhoStorageString = localStorage.getItem("produtosCarrinho")
+    if(carrinhoStorageString === null)return;
+
+    const carrinhoStorageArray = JSON.parse(carrinhoStorageString)
+
+    this.setState({
+      produtosCarrinho : carrinhoStorageArray
+    })
+  }
+
+  componentDidUpdate(){
+    localStorage.setItem("produtosCarrinho", JSON.stringify(this.state.produtosCarrinho))
+  }
 
   // tratamento dos inputs
   onChangeValorMinimo = (event) => {
@@ -104,7 +112,7 @@ export default class App extends React.Component {
 
   render() {
     let valorTotal = 0
-
+    
     const listaCarrinho = this.state.produtosCarrinho.map((item) => {
       valorTotal += item.preco * item.quantidade
       return <Carrinho
@@ -114,11 +122,10 @@ export default class App extends React.Component {
         onClickRemoverProduto={() => this.removerProduto(item.id)}
       />
     })
-
-    const listaFiltrada = this.state.produtos.filter((item) => {
-      if (((item.preco > this.state.valorMinimo || this.state.valorMinimo === '' ) && 
-        (item.preco < this.state.valorMaximo || this.state.valorMaximo === '') && 
-        (item.nome.includes(this.state.buscarNome) || this.state.buscarNome === ''))) 
+    const listaFiltrada = this.state.produtos.filter((item) => { 
+      if (((item.preco >= this.state.valorMinimo || this.state.valorMinimo === '' ) && 
+        (item.preco <= this.state.valorMaximo || this.state.valorMaximo === '') && 
+        (item.nome.toLowerCase().includes(this.state.buscarNome.toLowerCase()) || this.state.buscarNome === ''))) 
       {
         return true
       } else {
@@ -150,7 +157,7 @@ export default class App extends React.Component {
           onChangeValorMinimo={this.onChangeValorMinimo}
           onChangeValorMaximo={this.onChangeValorMaximo}
           onChangeBuscaNome={this.onChangeBuscarNome}
-          onChagenOrdem={this.onChangeOrdem}
+          onChangeOrdem={this.onChangeOrdem}
         />
         <div>
           {listaProdutos}
