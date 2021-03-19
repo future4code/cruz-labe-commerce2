@@ -2,41 +2,50 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import styled from 'styled-components'
 
+// ============== Geral
 const Componente = styled.div`
-    box-sizing: border-box;
-    margin: 10px 10px;
-    padding: 10px;
-    width: 230px;
-    height:90vh;
-    border: 1px solid black;
+    grid-column: 1 / 2;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    &>input, >select{
-        margin-top: 10px;
-        width: 90%;
-    }
-    &>h3{
-        margin-bottom: 5px;
-    }
-    &>select{
-        width: 99%;
-    }
+    justify-content: center;
 `
+
+// ============== Inputs
+const Titulo = styled.label`
+    color: white;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+`
+const CamposFiltros = styled.input `
+    background-color: #00011F;
+    color: white;
+    font-size: 1rem;
+    padding: 0.3rem;
+    margin: 0.2rem;
+    border: none;
+    border-bottom: 2px solid gray;
+`
+const CampoSelecao = styled.select `
+    background-color: #00011F;
+    color: white;
+    font-size: 1rem;
+    padding: 0.3rem;
+    margin: 0.2rem;
+    border: none;
+    border-bottom: 2px solid gray;
+`
+
 export default class Filtro extends React.Component {
-
-
     render() {
         return <Componente>
-            <h3>Filtros</h3>
-            <input type="number" placeholder="Valor mínimo" onChange={this.props.onChangeValorMinimo} />
-            <input type="number" placeholder="Valor máximo" onChange={this.props.onChangeValorMaximo} />
-            <input placeholder="Nome do produto" onChange={this.props.onChangeBuscaNome} />
-
-            <select defaultValue="crescente" onChange={this.props.onChangeOrdem}>
-                <option value="crescente">Crescente</option>
+            <Titulo>Filtros:</Titulo>
+            <CamposFiltros type="number" placeholder="Valor mínimo" onChange={this.props.onChangeValorMinimo}/>
+            <CamposFiltros type="number" placeholder="Valor máximo" onChange={this.props.onChangeValorMaximo} />
+            <CamposFiltros placeholder="Nome do produto" onChange={this.props.onChangeBuscaNome} />
+            <CampoSelecao defaultValue="decrescente" onChange={this.props.onChangeOrdem}>
+                <option value="crescente" >Crescente</option>
                 <option value="decrescente">Decrescente</option>
-            </select>
+            </CampoSelecao>
         </Componente>
     }
 }
