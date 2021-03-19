@@ -8,6 +8,11 @@ const Componente = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    @media (max-width: 1200px){
+        grid-column: -1/1;
+        justify-content: space-around;
+    }
 `
 
 // ============== Inputs

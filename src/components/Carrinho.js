@@ -11,6 +11,11 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
     text-align: left;
+
+    @media (max-width: 1200px){
+        width: 200px;
+        height: 140px;
+    }
 `
 
 // ============== Organização
