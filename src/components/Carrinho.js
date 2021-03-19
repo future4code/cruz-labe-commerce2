@@ -13,7 +13,7 @@ const Container = styled.div`
     text-align: left;
 
     @media (max-width: 1200px){
-        width: 200px;
+        width: 180px;
         height: 140px;
     }
 `

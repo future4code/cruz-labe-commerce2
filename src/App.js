@@ -20,6 +20,10 @@ const Container = styled.div`
   @media (max-width: 1200px){
     grid-template-rows: 70px 60px 3fr 1fr 70px;
   }
+
+  @media (max-width: 950px){
+    grid-template-rows: 70px 100px 3fr 1fr 70px;
+  }
 `
 // ============== Header
 const Cabecalho = styled.header`  
@@ -50,6 +54,11 @@ const ContainerProdutos = styled.div`
   @media (max-width: 1200px){
     grid-column: -1/1;
   }
+
+  @media (max-width: 950px){
+    grid-template-columns: repeat(3, 1fr);
+  }
+
 `
 const ContainerCarrinho = styled.div`
   grid-row: 2 / 4;
@@ -73,14 +82,18 @@ const ContainerCarrinho = styled.div`
     &>hr{
       display:none;
     }
-  
+  }
+
+  @media (max-width: 950px){
+    flex-wrap: wrap;
   }
 `
+
 const ValorTotal = styled.h4`
   font-size: 1.5rem;
 
   @media (max-width: 1200px){
-    align-self: center;
+    grid-column: 2/3;
   }
 `
 
