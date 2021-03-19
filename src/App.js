@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import imagemFundo from './imagens/imagem-fundo.jpg'
 import Logo from './imagens/logo.png'
 
+
 // ============== Geral
 const Container = styled.div`
   display: grid;
@@ -30,7 +31,7 @@ const Cabecalho = styled.header`
 
   border-bottom: 1px solid #002A5A;
 `
-const ImgLogo = styled.img `
+const ImgLogo = styled.img`
   width: 3rem;
 `
 // ============== Main
@@ -43,7 +44,7 @@ const ContainerProdutos = styled.div`
   gap: 1rem;
   margin: 1rem;
 `
-const ContainerCarrinho = styled.div `
+const ContainerCarrinho = styled.div`
   grid-row: 2 / 4;
   background-color: #00011F;
   color: white;
@@ -53,7 +54,7 @@ const ContainerCarrinho = styled.div `
   text-align: center;
   overflow-y: auto;
 `
-const ValorTotal = styled.h4 `
+const ValorTotal = styled.h4`
   font-size: 1.5rem;
 `
 
@@ -75,27 +76,27 @@ export default class App extends React.Component {
   state = {
     produtos: [{
       id: 1,
-      imagem: 'https://picsum.photos/200/150?n=1',
-      nome: 'Produto 1',
-      preco: 50,
+      imagem: 'https://www.sueddeutsche.de/image/sz.1.5212513/200x150?v=1613894708000',
+      nome: 'Viagem para Marte',
+      preco: 500,
     },
     {
       id: 2,
-      imagem: 'https://picsum.photos/200/150?n=2',
-      nome: 'Nome grande pra teste de um ngc ai',
-      preco: 100,
-    },
-    {
-      id: 3,
-      imagem: 'https://picsum.photos/200/150?n=3',
-      nome: 'Produto 3',
+      imagem: 'https://www.tagesspiegel.de/images/deutscher-astronaut-alexander-gerst/22647738/1-format2.jpg',
+      nome: 'Roupa Astronauta',
       preco: 200,
     },
     {
+      id: 3,
+      imagem: 'https://www.sueddeutsche.de/image/sz.1.5232151/200x150?v=1615470283000',
+      nome: 'Foguete Espacial',
+      preco: 800,
+    },
+    {
       id: 4,
-      imagem: 'https://picsum.photos/200/150?n=4',
-      nome: 'Produto 4',
-      preco: 250,
+      imagem: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Jupiter_Earth_Comparison.png/200px-Jupiter_Earth_Comparison.png',
+      nome: 'Viagem para Júpiter',
+      preco: 600,
     }],
     produtosCarrinho: [],
     valorMinimo: '',
@@ -204,18 +205,18 @@ export default class App extends React.Component {
     const listaProdutos = listaFiltrada.map((item) => {
 
       return (
-          <Produto
-            key={item.id}
-            linkImagem={item.imagem}
-            nomeProduto={item.nome}
-            precoProduto={item.preco}
-            adicionarCarrinho={() => this.adicionarCarrinho(item.id)} />
+        <Produto
+          key={item.id}
+          linkImagem={item.imagem}
+          nomeProduto={item.nome}
+          precoProduto={item.preco}
+          adicionarCarrinho={() => this.adicionarCarrinho(item.id)} />
       )
     })
 
     return (
       <Container>
-        <Cabecalho> <ImgLogo src={Logo}/><h1>AstroLoja</h1> </Cabecalho>
+        <Cabecalho> <ImgLogo src={Logo} /><h1>AstroLoja</h1> </Cabecalho>
         <Filtro
           valorMinimo={this.state.valorMinimo}
           valorMaximo={this.state.valorMaximo}
