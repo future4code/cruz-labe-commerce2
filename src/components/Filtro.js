@@ -42,7 +42,7 @@ export default class Filtro extends React.Component {
             <CamposFiltros type="number" placeholder="Valor mínimo" onChange={this.props.onChangeValorMinimo}/>
             <CamposFiltros type="number" placeholder="Valor máximo" onChange={this.props.onChangeValorMaximo} />
             <CamposFiltros placeholder="Nome do produto" onChange={this.props.onChangeBuscaNome} />
-            <CampoSelecao defaultValue="decrescente" onChange={this.props.onChangeOrdem}>
+            <CampoSelecao defaultValue="crescente" onChange={this.props.onChangeOrdem}>
                 <option value="crescente" >Crescente</option>
                 <option value="decrescente">Decrescente</option>
             </CampoSelecao>
