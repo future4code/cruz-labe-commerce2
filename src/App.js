@@ -18,7 +18,7 @@ const Container = styled.div`
 
   height: 100vh;
   @media (max-width: 1200px){
-    grid-template-rows: 70px 60px 3fr 300px 70px;
+    grid-template-rows: 70px 60px 3fr 1fr 70px;
     min-height: 1080px;
   }
 
@@ -136,27 +136,28 @@ export default class App extends React.Component {
   state = {
     produtos: [{
       id: 1,
-      imagem: 'https://www.sueddeutsche.de/image/sz.1.5212513/200x150?v=1613894708000',
-      nome: 'Viagem para Marte',
-      preco: 500,
-    },
-    {
-      id: 2,
       imagem: 'https://www.tagesspiegel.de/images/deutscher-astronaut-alexander-gerst/22647738/1-format2.jpg',
       nome: 'Roupa Astronauta',
       preco: 200,
     },
     {
-      id: 3,
-      imagem: 'https://www.sueddeutsche.de/image/sz.1.5232151/200x150?v=1615470283000',
-      nome: 'Foguete Espacial',
-      preco: 800,
+      
+      id: 2,
+      imagem: 'https://www.sueddeutsche.de/image/sz.1.5212513/200x150?v=1613894708000',
+      nome: 'Viagem para Marte',
+      preco: 500,
     },
     {
-      id: 4,
+      id: 3,
       imagem: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Jupiter_Earth_Comparison.png/200px-Jupiter_Earth_Comparison.png',
       nome: 'Viagem para Júpiter',
       preco: 600,
+    },
+    {
+      id: 4,
+      imagem: 'https://www.sueddeutsche.de/image/sz.1.5232151/200x150?v=1615470283000',
+      nome: 'Foguete Espacial',
+      preco: 800,
     }],
     produtosCarrinho: [],
     valorMinimo: '',
