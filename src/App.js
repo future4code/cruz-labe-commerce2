@@ -18,11 +18,16 @@ const Container = styled.div`
 
   height: 100vh;
   @media (max-width: 1200px){
-    grid-template-rows: 70px 60px 3fr 1fr 70px;
+    grid-template-rows: 70px 60px 3fr 300px 70px;
+    min-height: 1080px;
   }
 
   @media (max-width: 950px){
     grid-template-rows: 70px 100px 3fr 1fr 70px;
+  }
+
+  @media (max-width: 470px){
+    min-height: 1650px;
   }
 
 `
@@ -62,6 +67,11 @@ const ContainerProdutos = styled.div`
 
   @media (max-width: 700px){
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 470px){
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(4,1fr)
   }
 
 `
