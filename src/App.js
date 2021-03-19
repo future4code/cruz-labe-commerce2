@@ -40,9 +40,13 @@ const ContainerProdutos = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-
+  justify-items: center;
   gap: 1rem;
   margin: 1rem;
+
+  @media (max-width: 1200px){
+    
+  }
 `
 const ContainerCarrinho = styled.div`
   grid-row: 2 / 4;

@@ -8,6 +8,8 @@ const Container = styled.div`
   box-shadow: 0px 0px 5px gray;
   background-color: #00011F;
   border-radius: 2px;
+  width:200px;
+  height: 250px;
 `
 
 // ============== Descrição
