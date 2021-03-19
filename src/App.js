@@ -24,6 +24,7 @@ const Container = styled.div`
   @media (max-width: 950px){
     grid-template-rows: 70px 100px 3fr 1fr 70px;
   }
+
 `
 // ============== Header
 const Cabecalho = styled.header`  
@@ -59,6 +60,10 @@ const ContainerProdutos = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
 
+  @media (max-width: 700px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 `
 const ContainerCarrinho = styled.div`
   grid-row: 2 / 4;
@@ -75,6 +80,7 @@ const ContainerCarrinho = styled.div`
     grid-column: 1/-1;
     margin: 0 0 10px 0;
     display: flex;
+    justify-content: center;
     &>h3{
       display: none;
     }
