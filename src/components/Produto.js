@@ -10,12 +10,29 @@ const Container = styled.div`
   border-radius: 2px;
   width:200px;
   height: 250px;
+
+  @media (max-width: 470px){
+    width: 80%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    &>img{
+      width: 200px;
+      height: 150px;
+    }
+  }
+
 `
 
 // ============== Descrição
 const InformacoesProduto = styled.div`
   display: flex;
   flex-direction: column;
+  
+  @media (max-width:470px){
+    width:200px;
+  }
 `
 const DescricaoDoProduto = styled.label`
   color: #333;
