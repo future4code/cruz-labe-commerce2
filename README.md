@@ -1,6 +1,7 @@
 # AstroLoja :rocket:
 Projeto de E-Commerce para a aplicação dos conhecimentos sobre react.
-<br />
+<br /><br />
+
 
 ## :white_check_mark: Funcionalidades
 - [x] Área de filtragem dos produtos;
