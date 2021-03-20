@@ -1,5 +1,6 @@
 # AstroLoja :rocket:
 Projeto de E-Commerce para a aplicação dos conhecimentos sobre react.
+<br />
 
 ## :white_check_mark: Funcionalidades
 - [x] Área de filtragem dos produtos;
@@ -10,9 +11,13 @@ Projeto de E-Commerce para a aplicação dos conhecimentos sobre react.
 - [x] Cada item pode ser retirado do carrinho;
 - [x] Itens do carrinho guardadas no LocalStorage;
 - [x] Responsividade para todas as telas;
+<br />
+
 
 ## :wrench: Tecnologias
 ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+<br />
+
 
 ## :black_nib: Autores
 <table>
