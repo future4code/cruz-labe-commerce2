@@ -18,7 +18,7 @@ Projeto de E-Commerce para a aplicação dos conhecimentos sobre react.
 <br /><br />
 
 ## Link Surge
-labe-comerce.surge.sh
+http://labe-comerce.surge.sh/
 <br /><br />
 
 ## :black_nib: Autores
