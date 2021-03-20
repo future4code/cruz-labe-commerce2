@@ -12,7 +12,7 @@ Projeto de E-Commerce para a aplicação dos conhecimentos sobre react.
 - [x] Responsividade para todas as telas;
 
 ## :wrench: Tecnologias
-* React <img src="https://miro.medium.com/max/500/1*cPh7ujRIfcHAy4kW2ADGOw.png" width="12px" alt="Logo react"/>
+![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
 ## :black_nib: Autores
 <table>
