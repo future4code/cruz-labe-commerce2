@@ -17,6 +17,11 @@ const Container = styled.div`
   background-size: cover; 
 
   height: 100vh;
+
+  @media (max-height:766px){
+    min-height: 766px;
+  }
+
   @media (max-width: 1200px){
     grid-template-rows: 70px 60px 3fr 1fr 70px;
     min-height: 1080px;
