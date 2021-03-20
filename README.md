@@ -2,7 +2,6 @@
 Projeto de E-Commerce para a aplicação dos conhecimentos sobre react.
 <br /><br />
 
-
 ## :white_check_mark: Funcionalidades
 - [x] Área de filtragem dos produtos;
 - [x] Filtragem por preço mínimo, máximo e por nome;
@@ -14,11 +13,9 @@ Projeto de E-Commerce para a aplicação dos conhecimentos sobre react.
 - [x] Responsividade para todas as telas;
 <br />
 
-
 ## :wrench: Tecnologias
 ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-<br />
-
+<br /><br />
 
 ## :black_nib: Autores
 <table>
