@@ -17,6 +17,19 @@ const Container = styled.div`
   background-size: cover; 
 
   height: 100vh;
+  @media (max-width: 1200px){
+    grid-template-rows: 70px 60px 3fr 1fr 70px;
+    min-height: 1080px;
+  }
+
+  @media (max-width: 950px){
+    grid-template-rows: 70px 100px 3fr 1fr 70px;
+  }
+
+  @media (max-width: 470px){
+    min-height: 1650px;
+  }
+
 `
 // ============== Header
 const Cabecalho = styled.header`  
@@ -40,9 +53,27 @@ const ContainerProdutos = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-
+  justify-items: center;
   gap: 1rem;
   margin: 1rem;
+
+  @media (max-width: 1200px){
+    grid-column: -1/1;
+  }
+
+  @media (max-width: 950px){
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 700px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 470px){
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(4,1fr)
+  }
+
 `
 const ContainerCarrinho = styled.div`
   grid-row: 2 / 4;
@@ -53,14 +84,39 @@ const ContainerCarrinho = styled.div`
   margin: 1rem 1rem 1rem 0;
   text-align: center;
   overflow-y: auto;
+
+  @media (max-width: 1200px){
+    grid-row: 4/5;
+    grid-column: 1/-1;
+    margin: 0 0 10px 0;
+    display: flex;
+    justify-content: center;
+    &>h3{
+      display: none;
+    }
+
+    &>hr{
+      display:none;
+    }
+  }
+
+  @media (max-width: 950px){
+    flex-wrap: wrap;
+  }
 `
+
 const ValorTotal = styled.h4`
   font-size: 1.5rem;
+
+  @media (max-width: 1200px){
+    grid-column: 2/3;
+  }
 `
 
 // ============== Footer
 const Rodape = styled.footer` 
   grid-column: 1 / -1;
+  grid-row: 4/5;
   background-color: #04010e;
   height: 100%;
 
@@ -69,6 +125,10 @@ const Rodape = styled.footer`
   justify-content: center;
   font-size: 0.8rem;
   color: white;
+
+  @media (max-width: 1200px){
+    grid-row: 5/6;
+  }
 `
 
 
@@ -76,27 +136,28 @@ export default class App extends React.Component {
   state = {
     produtos: [{
       id: 1,
-      imagem: 'https://www.sueddeutsche.de/image/sz.1.5212513/200x150?v=1613894708000',
-      nome: 'Viagem para Marte',
-      preco: 500,
-    },
-    {
-      id: 2,
       imagem: 'https://www.tagesspiegel.de/images/deutscher-astronaut-alexander-gerst/22647738/1-format2.jpg',
       nome: 'Roupa Astronauta',
       preco: 200,
     },
     {
-      id: 3,
-      imagem: 'https://www.sueddeutsche.de/image/sz.1.5232151/200x150?v=1615470283000',
-      nome: 'Foguete Espacial',
-      preco: 800,
+      
+      id: 2,
+      imagem: 'https://www.sueddeutsche.de/image/sz.1.5212513/200x150?v=1613894708000',
+      nome: 'Viagem para Marte',
+      preco: 500,
     },
     {
-      id: 4,
+      id: 3,
       imagem: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Jupiter_Earth_Comparison.png/200px-Jupiter_Earth_Comparison.png',
       nome: 'Viagem para Júpiter',
       preco: 600,
+    },
+    {
+      id: 4,
+      imagem: 'https://www.sueddeutsche.de/image/sz.1.5232151/200x150?v=1615470283000',
+      nome: 'Foguete Espacial',
+      preco: 800,
     }],
     produtosCarrinho: [],
     valorMinimo: '',

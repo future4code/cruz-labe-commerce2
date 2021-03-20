@@ -8,12 +8,33 @@ const Container = styled.div`
   box-shadow: 0px 0px 5px gray;
   background-color: #00011F;
   border-radius: 2px;
+  width:200px;
+  height: 250px;
+
+
+  @media (max-width: 1200px){
+    width: 80%;
+    min-width: 200px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    &>img{
+      width: 200px;
+      height: 150px;
+    }
+  }
+
 `
 
 // ============== Descrição
 const InformacoesProduto = styled.div`
   display: flex;
   flex-direction: column;
+  
+  @media (max-width:470px){
+    width:200px;
+  }
 `
 const DescricaoDoProduto = styled.label`
   color: #333;
